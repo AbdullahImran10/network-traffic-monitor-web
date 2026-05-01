@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Network Monitor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>Network Traffic Monitoring</h1>
+
+<div class="controls">
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
+</div>
+
+<h2>Filters</h2>
+
+<select id="protocol">
+    <option value="">All</option>
+    <option>TCP</option>
+    <option>UDP</option>
+    <option>ICMP</option>
+</select>
+
+<input type="text" id="src" placeholder="Source IP">
+<input type="text" id="dst" placeholder="Destination IP">
+
+<button onclick="loadData()">Filter</button>
+<button onclick="reset()">Reset</button>
+
+<h2>Statistics</h2>
+<div id="stats"></div>
+
+<h2>Packet Logs</h2>
+<table>
+<thead>
+<tr>
+<th>Src</th><th>Dst</th><th>Protocol</th><th>Size</th><th>Service</th>
+</tr>
+</thead>
+<tbody id="tableBody"></tbody>
+</table>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
